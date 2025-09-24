@@ -1,0 +1,71 @@
+Brian (Guanghui) Sun
+Certified Senior Data Scientist | Analytics Lead
+(647)226-4508 | sun.gsm@hotmail.com | Greater Toronto Area, ON, Canada
+
+SUMMARY
+Certified Senior Data Scientist, accredited by the Data Science Council of America (DASCA), and former Technical AI Ambassador at HSBC, with over 10 years of experience leading AI, machine learning, data science and advanced analytics initiatives, primarily in the financial sector. Demonstrated success in fraud mitigation, risk management, client service operation, and marketing optimization, delivering data-driven solutions that improve decision-making and operational efficiency. Now ready to leverage strong analytical skills and technical leadership experience to create value for future employers after a career break due to family relocation.
+
+CORE COMPETENCIES
+Analytics Solution Architect | Data Science | LLM | Agentic AI | Machine Learning | Predictive Modeling | MLOps | CI/CD | Cloud Platform | Data Modeling | ETL | Data Pipeline | Business Intelligence | Data Visualization | Data Management | Team Leadership | Agile/Scrum | Data Storytelling | Business Presentation
+
+WORK EXPERIENCE
+Senior Data Scientist, HSBC 	May 2022 - August 2024
+Spearheaded AI and data science innovation initiatives focused on HSBC global wholesale banking business in fraud risk mitigation, workforce management, and client service operations.
+* GenAI Solution for Suspicious Fraud Case Review: Initiated and led the generative AI agent development for assisting the fraud case review report generation, boosting team productivity by reducing up to 35% case review processing time.  
+* Explainable AI Solution for Loan Fraud Mitigation: Engineered the Explainable Artificial Intelligence solution, which integrated ML model with expert decision model, for 1st party lending fraud mitigation, increasing detection accuracy by 30+% and averting annual fraud losses up to $100 million globally.
+* Automated Demand Forecast Engine: Automated the training and maintenance of 1000+ Meta Prophet forecasting models, boosting demand forecasting accuracy by 60% for wholesale client service.
+* Machine Learning Solution for Workforce Management: Pioneered the integration of machine learning algorithms to develop personalized performance benchmarks based on workload, case complexity, and experience, enhancing evaluation equity and boosting client manager productivity.
+VP of Analytics, HSBC 	November 2019 - April 2022
+Manage a team of data scientists and data analysts, supporting HSBC global retail banking business.
+* Machine Learning Solution for Credit Card Application Fraud Detection: Championed the development of a real-time machine learning solution for credit card fraud detection, reducing fraud losses by $0.8 million USD in 2021.
+* Marketing Optimization by Machine Learning: Revamped marketing campaigns by A/B test and machine learning algorithm, resulting in a 5x increase in conversion rates.
+* Intelligent COVID-19 Risk Management Tool: Initialized and led the Intelligence system development for COVID-19 risk management, winning the Best Alliance award of Global Service Elite 2020.
+Big Data Engineering Lead, CRCBank 	March 2018 - August 2019
+* Pioneered data governance architecture development, cleansing 2000+ tables (3TB) across 10 bank systems, enhancing analytics efficiency.
+* Led the development of 30+ operational and financial KPI dashboards, and designed and implemented credit and fraud strategies, establishing a data-driven risk control system for post-loan risk monitoring.
+Risk Data Science Lead, Mashang Consumer Finance Ltd 	May 2017 - March 2018
+* Spearheaded the fraud strategy development for POS loans, resulting in 26% reduction of fraud loss.
+* Led the machine learning based risk model development, supporting the consumer loan risk management.
+Payment Data Analytics Lead, Vipshop Ltd 	October 2016 - April 2017
+* Championed the development of fraud detection ML models, enhancing online transaction security.
+* Led the machine learning initiatives that optimized marketing campaigns, increasing adoption by 30% and reducing marketing costs by 15%.
+Senior Manager of Analytics Consulting, Fair Isaac Corporation 	September 2015 - September 2016
+* Led a team of analytics consultants in developing analytics solutions for diverse risk consulting projects.
+Senior Developer (Independent Contractor), Bank of Montreal 	November 2014 - August 2015
+* Engineered reporting automation for CCAR and DFAST regulatory reporting for Basel II compliance.
+Senior Analytics Consultant, Canadian Imperial Bank of Commerce 	July 2013 - October 2014
+*  Spearheaded the creation of advanced machine learning models aimed at effective fraud mitigation.
+Senior Data Analyst, Customer Support Operation, BlackBerry Ltd 	March 2012 - June 2013
+* Developed innovative BI solutions and forecasting models to enhance customer service operations.
+Senior Statistician, University of British Columbia 	September 2010 � February 2012
+*  Provided comprehensive data management and statistical consulting for healthcare projects.
+
+EDUCATION
+September 2008 - May 2010	Master in Business Administration, University of British Columbia
+September 2005 - July 2008	Master in Statistics, Peking University
+September 1995 - July 1999	Bachelor in Mechatronics Engineering, Hangzhou Dianzi University
+
+CERTIFICATIONS
+1. Data Science and AI
+* HSBC Technical AI Ambassador,		HSBC, March 2024, certification link: https://www.credly.com/badges/be4ca093-29aa-4687-b9b0-65aeb2eaef79/public_url
+* DASCA Certified Senior Data Scientist,	Data Science Council of America (DASCA), December 2023, certification link: https://www.credbadge.com/credit/certified/9984270316/
+* SAS Certified Statistical Business Analyst, 	SAS, July 2012, certification link: https://www.credly.com/badges/f314db8d-e6b9-40d9-8e10-dea111378140
+* SAS Certified Predictive Modeler, 	SAS, April 2011, certification link: https://cp.certmetrics.com/SAS/en/public/transcript/fde327eda7a442c6b23613f6a6a3cd54
+2. Data Engineering
+* Data Engineering, Big Data, and Machine Learning on GCP, 	Google Cloud, April 2021, certification link: https://www.coursera.org/account/accomplishments/specialization/certificate/ELDJ4FVB9FTD
+* SAS Certified Data Integration Developer, 	SAS, July 2014, certification link: https://www.credly.com/badges/bbba8060-3eeb-48fc-b2a2-c5e650645302
+3. Business Intelligence and Reporting
+* Microsoft Certified Power BI Data Analyst Associate, 	Microsoft, April 2024 certification link: https://learn.microsoft.com/en-us/users/briansun-1972/credentials/3b489f56570ba144?ref=https%3A%2F%2Fwww.linkedin.com%2F
+* SAS Certified Business Intelligence Content Developer,	 SAS, April 2013 certification link: https://www.credly.com/badges/ffd058bf-1597-4b45-a743-c8f7cc512769
+4. Programming Languages
+* PCAP - Certified Associate Python Programmer,	OpenEDG Python Institute, January 2024, certification link: https://www.credly.com/badges/e6f6a8bd-de0f-48e7-92ca-d626af9f385d/linked_in_profile
+* SAS Certified Advanced Programmer,	SAS, July 2011 certification link: https://www.credly.com/badges/d6e68ec6-b3fb-4e25-af20-9bcbe41f3b83
+* SAS Certified Base Programmer,	SAS, September 2009 certification link: https://www.credly.com/badges/b0d4bb3c-b2dd-4d90-aa03-82561f0bb82d
+
+TECHNICAL SKILLS
+Python | Scikit-learn | Pytorch | Pandas | Seaborn | Matplotlib | SAS | SQL | GCP | Databricks | Microsoft Power BI | Tableau | Hadoop | Spark | Airflow| Fast API | Linux | Unix Shell Scripting | Jira | Confluence | Github
+
+
+
+
+

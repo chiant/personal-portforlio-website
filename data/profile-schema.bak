@@ -1,0 +1,472 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Professional Portfolio Data Schema",
+  "description": "Schema for storing professional portfolio and CV data",
+  "type": "object",
+  "required": [
+    "personalInfo",
+    "summary",
+    "coreCompetencies",
+    "workExperience",
+    "education",
+    "certifications",
+    "technicalSkills",
+    "contactInfo",
+    "media",
+    "metadata"
+  ],
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "description": "Personal and professional identification information",
+      "required": ["fullName", "preferredName", "title", "location"],
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Full legal name"
+        },
+        "preferredName": {
+          "type": "string",
+          "description": "Preferred name for display"
+        },
+        "title": {
+          "type": "string",
+          "description": "Professional title or current position"
+        },
+        "location": {
+          "type": "object",
+          "description": "Current location information",
+          "required": ["city", "province", "country"],
+          "properties": {
+            "city": {"type": "string"},
+            "province": {"type": "string"},
+            "country": {"type": "string"}
+          }
+        },
+        "pronouns": {
+          "type": "string",
+          "description": "Preferred pronouns (optional)"
+        },
+        "languages": {
+          "type": "array",
+          "description": "Languages spoken with proficiency levels",
+          "items": {
+            "type": "object",
+            "required": ["language", "proficiency"],
+            "properties": {
+              "language": {"type": "string"},
+              "proficiency": {
+                "type": "string",
+                "enum": ["Native", "Fluent", "Advanced", "Intermediate", "Basic"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "description": "Professional summary and value proposition",
+      "required": ["professionalSummary"],
+      "properties": {
+        "professionalSummary": {
+          "type": "string",
+          "description": "Main professional summary paragraph"
+        },
+        "keyHighlights": {
+          "type": "array",
+          "description": "Key professional highlights or achievements",
+          "items": {"type": "string"}
+        },
+        "careerObjective": {
+          "type": "string",
+          "description": "Current career objectives or goals"
+        }
+      }
+    },
+    "coreCompetencies": {
+      "type": "object",
+      "description": "Core professional competencies and skills",
+      "required": ["competencies"],
+      "properties": {
+        "competencies": {
+          "type": "array",
+          "description": "List of core competencies",
+          "items": {
+            "type": "object",
+            "required": ["name", "category"],
+            "properties": {
+              "name": {"type": "string"},
+              "category": {
+                "type": "string",
+                "enum": ["Analytics", "Data Science", "Machine Learning", "Leadership", "Technical", "Business"]
+              },
+              "proficiency": {
+                "type": "string",
+                "enum": ["Expert", "Advanced", "Intermediate", "Basic"]
+              },
+              "yearsExperience": {"type": "number"}
+            }
+          }
+        }
+      }
+    },
+    "workExperience": {
+      "type": "object",
+      "description": "Professional work experience",
+      "required": ["positions"],
+      "properties": {
+        "positions": {
+          "type": "array",
+          "description": "List of work positions in chronological order",
+          "items": {
+            "type": "object",
+            "required": ["title", "company", "startDate", "endDate", "description"],
+            "properties": {
+              "title": {"type": "string"},
+              "company": {"type": "string"},
+              "location": {"type": "string"},
+              "startDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "endDate": {
+                "type": ["string", "null"],
+                "format": "date",
+                "description": "null for current position"
+              },
+              "isCurrent": {"type": "boolean"},
+              "description": {"type": "string"},
+              "achievements": {
+                "type": "array",
+                "description": "Key achievements and accomplishments",
+                "items": {
+                  "type": "object",
+                  "required": ["title", "description"],
+                  "properties": {
+                    "title": {"type": "string"},
+                    "description": {"type": "string"},
+                    "metrics": {
+                      "type": "object",
+                      "description": "Quantifiable metrics and results",
+                      "properties": {
+                        "value": {"type": "string"},
+                        "unit": {"type": "string"},
+                        "impact": {"type": "string"}
+                      }
+                    },
+                    "technologies": {
+                      "type": "array",
+                      "description": "Technologies used in this achievement",
+                      "items": {"type": "string"}
+                    }
+                  }
+                }
+              },
+              "technologies": {
+                "type": "array",
+                "description": "Technologies and tools used in this role",
+                "items": {"type": "string"}
+              },
+              "teamSize": {"type": "number"},
+              "reportingTo": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "education": {
+      "type": "object",
+      "description": "Educational background",
+      "required": ["degrees"],
+      "properties": {
+        "degrees": {
+          "type": "array",
+          "description": "Educational degrees and qualifications",
+          "items": {
+            "type": "object",
+            "required": ["degree", "institution", "startDate", "endDate"],
+            "properties": {
+              "degree": {"type": "string"},
+              "institution": {"type": "string"},
+              "location": {"type": "string"},
+              "startDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "endDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "gpa": {"type": "string"},
+              "honors": {"type": "string"},
+              "relevantCoursework": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "thesis": {"type": "string"},
+              "advisor": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "certifications": {
+      "type": "object",
+      "description": "Professional certifications and credentials",
+      "required": ["certifications"],
+      "properties": {
+        "certifications": {
+          "type": "array",
+          "description": "Professional certifications organized by category",
+          "items": {
+            "type": "object",
+            "required": ["name", "issuer", "issueDate", "category"],
+            "properties": {
+              "name": {"type": "string"},
+              "issuer": {"type": "string"},
+              "issueDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "expiryDate": {
+                "type": ["string", "null"],
+                "format": "date"
+              },
+              "category": {
+                "type": "string",
+                "enum": ["Data Science and AI", "Data Engineering", "Business Intelligence and Reporting", "Programming Languages", "Cloud Platforms", "Other"]
+              },
+              "credentialId": {"type": "string"},
+              "verificationUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "badgeUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "description": {"type": "string"},
+              "skills": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "technicalSkills": {
+      "type": "object",
+      "description": "Technical skills and proficiencies",
+      "required": ["skills"],
+      "properties": {
+        "skills": {
+          "type": "array",
+          "description": "Technical skills organized by category",
+          "items": {
+            "type": "object",
+            "required": ["name", "category"],
+            "properties": {
+              "name": {"type": "string"},
+              "category": {
+                "type": "string",
+                "enum": ["Programming Languages", "Data Science & ML", "Cloud Platforms", "Databases", "Tools & Frameworks", "Operating Systems", "Other"]
+              },
+              "proficiency": {
+                "type": "string",
+                "enum": ["Expert", "Advanced", "Intermediate", "Basic", "Learning"]
+              },
+              "yearsExperience": {"type": "number"},
+              "lastUsed": {
+                "type": "string",
+                "format": "date"
+              },
+              "projects": {
+                "type": "array",
+                "description": "Projects where this skill was used",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "contactInfo": {
+      "type": "object",
+      "description": "Contact information and social media",
+      "required": ["email", "phone"],
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {"type": "string"},
+        "socialMedia": {
+          "type": "object",
+          "description": "Professional social media profiles",
+          "properties": {
+            "linkedin": {
+              "type": "string",
+              "format": "uri"
+            },
+            "github": {
+              "type": "string",
+              "format": "uri"
+            },
+            "twitter": {
+              "type": "string",
+              "format": "uri"
+            },
+            "website": {
+              "type": "string",
+              "format": "uri"
+            },
+            "portfolio": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "preferredContactMethod": {
+          "type": "string",
+          "enum": ["email", "phone", "linkedin"]
+        },
+        "availability": {
+          "type": "string",
+          "description": "Current availability status"
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "description": "Media files and documents",
+      "required": ["profilePhoto"],
+      "properties": {
+        "profilePhoto": {
+          "type": "object",
+          "description": "Professional profile photo",
+          "required": ["url", "alt"],
+          "properties": {
+            "url": {"type": "string"},
+            "alt": {"type": "string"},
+            "caption": {"type": "string"}
+          }
+        },
+        "documents": {
+          "type": "object",
+          "description": "Downloadable documents",
+          "properties": {
+            "cvPdf": {
+              "type": "object",
+              "description": "PDF version of CV for download",
+              "required": ["url", "filename"],
+              "properties": {
+                "url": {"type": "string"},
+                "filename": {"type": "string"},
+                "lastUpdated": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          }
+        },
+        "portfolio": {
+          "type": "array",
+          "description": "Portfolio projects and case studies",
+          "items": {
+            "type": "object",
+            "required": ["title", "description", "technologies"],
+            "properties": {
+              "title": {"type": "string"},
+              "description": {"type": "string"},
+              "technologies": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "githubUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "images": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["url", "alt"],
+                  "properties": {
+                    "url": {"type": "string"},
+                    "alt": {"type": "string"},
+                    "caption": {"type": "string"}
+                  }
+                }
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "category": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "System metadata and configuration",
+      "required": ["version", "lastUpdated", "created"],
+      "properties": {
+        "version": {"type": "string"},
+        "lastUpdated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedBy": {"type": "string"},
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "seo": {
+          "type": "object",
+          "description": "SEO metadata",
+          "properties": {
+            "title": {"type": "string"},
+            "description": {"type": "string"},
+            "keywords": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "ogImage": {"type": "string"}
+          }
+        },
+        "settings": {
+          "type": "object",
+          "description": "Website configuration settings",
+          "properties": {
+            "theme": {
+              "type": "string",
+              "enum": ["light", "dark", "auto"]
+            },
+            "language": {"type": "string"},
+            "timezone": {"type": "string"},
+            "analytics": {
+              "type": "object",
+              "properties": {
+                "googleAnalytics": {"type": "string"},
+                "hotjar": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
