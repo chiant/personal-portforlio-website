@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Professional Portfolio Data Schema",
-  "description": "Schema for storing professional portfolio and CV data",
+  "title": "Professional Profile Data Schema",
+  "description": "Schema for storing professional profile and CV data",
   "type": "object",
   "required": [
     "personalInfo",
@@ -263,10 +263,6 @@
             "website": {
               "type": "string",
               "format": "uri"
-            },
-            "portfolio": {
-              "type": "string",
-              "format": "uri"
             }
           }
         },
@@ -288,11 +284,9 @@
         "profilePhoto": {
           "type": "object",
           "description": "Professional profile photo",
-          "required": ["url", "alt"],
+          "required": ["url"],
           "properties": {
-            "url": {"type": "string"},
-            "alt": {"type": "string"},
-            "caption": {"type": "string"}
+            "url": {"type": "string"}
           }
         },
         "documents": {
@@ -309,49 +303,12 @@
                 "lastUpdated": {
                   "type": "string",
                   "format": "date"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Custom download filename (optional)"
                 }
               }
-            }
-          }
-        },
-        "portfolio": {
-          "type": "array",
-          "description": "Portfolio projects and case studies",
-          "items": {
-            "type": "object",
-            "required": ["title", "description", "technologies"],
-            "properties": {
-              "title": {"type": "string"},
-              "description": {"type": "string"},
-              "technologies": {
-                "type": "array",
-                "items": {"type": "string"}
-              },
-              "url": {
-                "type": ["string", "null"],
-                "format": "uri"
-              },
-              "githubUrl": {
-                "type": ["string", "null"],
-                "format": "uri"
-              },
-              "images": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": ["url", "alt"],
-                  "properties": {
-                    "url": {"type": "string"},
-                    "alt": {"type": "string"},
-                    "caption": {"type": "string"}
-                  }
-                }
-              },
-              "date": {
-                "type": "string",
-                "format": "date"
-              },
-              "category": {"type": "string"}
             }
           }
         }

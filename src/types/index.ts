@@ -43,7 +43,7 @@ export interface WorkPosition {
   isCurrent: boolean;
   description: string;
   achievements: Achievement[];
-  technologies: string[];
+  technologies?: string[];
   teamSize?: number;
   reportingTo?: string;
 }
@@ -98,7 +98,6 @@ export interface ContactInfo {
     github?: string;
     twitter?: string;
     website?: string;
-    portfolio?: string;
   };
   preferredContactMethod: 'email' | 'phone' | 'linkedin';
   availability?: string;
@@ -107,30 +106,15 @@ export interface ContactInfo {
 export interface Media {
   profilePhoto: {
     url: string;
-    alt: string;
-    caption?: string;
   };
   documents: {
     cvPdf: {
       url: string;
       filename: string;
-      lastUpdated: string;
+      lastUpdated?: string;
+      description?: string; // Used for custom download filename
     };
   };
-  portfolio?: Array<{
-    title: string;
-    description: string;
-    technologies: string[];
-    url?: string;
-    githubUrl?: string;
-    images?: Array<{
-      url: string;
-      alt: string;
-      caption?: string;
-    }>;
-    date: string;
-    category: string;
-  }>;
 }
 
 export interface Metadata {
@@ -222,4 +206,92 @@ export interface AnimationProps {
   delay?: number;
   duration?: number;
   className?: string;
+}
+
+// Component Props types
+export interface HeroProps {
+  personalInfo: PersonalInfo;
+  summary: Summary;
+  media: Media;
+  contactInfo: ContactInfo;
+}
+
+export interface ContactProps {
+  contactInfo: ContactInfo;
+  media: Media;
+}
+
+export interface AboutProps {
+  coreCompetencies: CoreCompetencies;
+}
+
+export interface ExperienceProps {
+  workExperience: WorkExperience;
+}
+
+export interface EducationProps {
+  education: Education;
+}
+
+export interface CertificationsProps {
+  certifications: Certifications;
+}
+
+export interface SkillsProps {
+  technicalSkills: TechnicalSkills;
+}
+
+// Visitor Message types
+export interface VisitorMessage {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  timestamp: string;
+  status: 'unread' | 'read' | 'replied' | 'archived';
+  ipAddress?: string;
+  userAgent?: string;
+}
+
+export interface MessageStorage {
+  messages: VisitorMessage[];
+  lastUpdated: string;
+}
+
+// Multi-Profile Management types
+export interface ProfileMetadata {
+  id: string;
+  name: string;
+  description: string;
+  endpoint: string; // URL endpoint for this profile (e.g., "brian-sun", "data-scientist")
+  isActive: boolean; // Whether this profile is accessible via its endpoint
+  created: string;
+  lastUpdated: string;
+  cvPdfPath?: string;
+  cvPdfFilename?: string;
+}
+
+export interface MultiProfileConfig {
+  profiles: ProfileMetadata[];
+  lastUpdated: string;
+}
+
+// Data Service types
+export interface DataServiceResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: string;
+}
+
+export interface SaveProfileResponse {
+  success: boolean;
+  profileId: string;
+  message: string;
+}
+
+export interface SaveMessageResponse {
+  success: boolean;
+  messageId: string;
+  message: string;
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Linkedin, Github, ExternalLink, CheckCircle } from 'lucide-react';
 import { ContactProps } from '../types';
+import { dataService } from '../services/dataService';
 
 const Contact: React.FC<ContactProps> = ({ contactInfo, media }) => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,15 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, media }) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  // Don't render if no contact information
+  const hasContactInfo = (contactInfo.email && contactInfo.email.trim() !== '') ||
+                        (contactInfo.phone && contactInfo.phone.trim() !== '');
+
+  if (!hasContactInfo) {
+    return null;
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -39,25 +49,63 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, media }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+    try {
+      // Save message using data service
+      const result = await dataService.saveMessage({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        ipAddress: '', // Could be captured from request in real app
+        userAgent: navigator.userAgent
+      });
+
+      if (result.success) {
+        setIsSubmitted(true);
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', email: '', subject: '', message: '' });
+        }, 3000);
+      } else {
+        setSubmitError(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      setSubmitError('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const downloadCV = () => {
-    const link = document.createElement('a');
-    link.href = media.documents.cvPdf.url;
-    link.download = media.documents.cvPdf.filename;
-    link.click();
+  const downloadCV = async () => {
+    try {
+      // Add download=true query parameter to force download behavior
+      const downloadUrl = media.documents.cvPdf.url + (media.documents.cvPdf.url.includes('?') ? '&' : '?') + 'download=true';
+      
+      // Fetch the file as a blob to force download
+      const response = await fetch(downloadUrl);
+      if (!response.ok) throw new Error('Download failed');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      // Use custom download filename if set, otherwise use backend filename
+      link.download = media.documents.cvPdf.description || media.documents.cvPdf.filename || 'cv-document';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up the blob URL
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback to direct link if fetch fails
+      window.open(media.documents.cvPdf.url, '_blank');
+    }
   };
 
   return (
@@ -91,49 +139,41 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, media }) => {
                 
                 <div className="space-y-6">
                   {/* Email */}
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-primary-600" />
+                  {contactInfo.email && (
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <Mail className="w-6 h-6 text-primary-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-secondary-900 dark:text-white mb-1">Email</h4>
+                        <a
+                          href={`mailto:${contactInfo.email}`}
+                          className="text-primary-600 hover:text-primary-700 transition-colors"
+                        >
+                          {contactInfo.email}
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-secondary-900 dark:text-white mb-1">Email</h4>
-                      <a
-                        href={`mailto:${contactInfo.email}`}
-                        className="text-primary-600 hover:text-primary-700 transition-colors"
-                      >
-                        {contactInfo.email}
-                      </a>
-                    </div>
-                  </div>
+                  )}
 
                   {/* Phone */}
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-primary-600" />
+                  {contactInfo.phone && (
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <Phone className="w-6 h-6 text-primary-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-secondary-900 dark:text-white mb-1">Phone</h4>
+                        <a
+                          href={`tel:${contactInfo.phone}`}
+                          className="text-primary-600 hover:text-primary-700 transition-colors"
+                        >
+                          {contactInfo.phone}
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-secondary-900 dark:text-white mb-1">Phone</h4>
-                      <a
-                        href={`tel:${contactInfo.phone}`}
-                        className="text-primary-600 hover:text-primary-700 transition-colors"
-                      >
-                        {contactInfo.phone}
-                      </a>
-                    </div>
-                  </div>
+                  )}
 
-                  {/* Location */}
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-primary-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-secondary-900 dark:text-white mb-1">Location</h4>
-                      <p className="text-secondary-700 dark:text-white">
-                        Greater Toronto Area, ON, Canada
-                      </p>
-                    </div>
-                  </div>
 
                   {/* Availability */}
                   {contactInfo.availability && (
@@ -170,6 +210,13 @@ const Contact: React.FC<ContactProps> = ({ contactInfo, media }) => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Error Message */}
+                    {submitError && (
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+                        {submitError}
+                      </div>
+                    )}
+                    
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-secondary-700 dark:text-white mb-2">

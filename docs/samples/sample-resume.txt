@@ -1,0 +1,68 @@
+Mark Frank Rihar
+Software Engineer
+Toronto, ON, Canada
+mark.rihar@email.com
+(416) 555-0123
+
+PROFESSIONAL SUMMARY
+Experienced software engineer with 8+ years of expertise in full-stack development, cloud architecture, and team leadership. Proven track record of delivering scalable solutions and mentoring junior developers.
+
+WORK EXPERIENCE
+
+Senior Software Engineer
+Tech Solutions Inc., Toronto, ON
+January 2020 - Present
+• Led development of microservices architecture serving 1M+ users
+• Implemented CI/CD pipelines reducing deployment time by 60%
+• Mentored team of 5 junior developers
+• Technologies: React, Node.js, AWS, Docker, Kubernetes
+
+Software Developer
+Digital Innovations Ltd., Toronto, ON
+June 2017 - December 2019
+• Developed responsive web applications using React and TypeScript
+• Collaborated with UX team to improve user experience
+• Optimized database queries improving performance by 40%
+• Technologies: React, TypeScript, PostgreSQL, Express.js
+
+Junior Developer
+StartupCorp, Toronto, ON
+September 2015 - May 2017
+• Built RESTful APIs and frontend components
+• Participated in agile development process
+• Contributed to code reviews and testing
+• Technologies: JavaScript, HTML, CSS, MySQL
+
+EDUCATION
+
+Bachelor of Computer Science
+University of Toronto, Toronto, ON
+September 2011 - June 2015
+GPA: 3.7/4.0
+
+CERTIFICATIONS
+
+AWS Certified Solutions Architect
+Amazon Web Services
+Issued: March 2021
+Valid until: March 2024
+
+Certified Kubernetes Administrator
+Cloud Native Computing Foundation
+Issued: August 2020
+Valid until: August 2023
+
+TECHNICAL SKILLS
+
+Programming Languages: JavaScript, TypeScript, Python, Java, C++
+Frontend: React, Vue.js, Angular, HTML5, CSS3, SASS
+Backend: Node.js, Express.js, Django, Spring Boot
+Databases: PostgreSQL, MySQL, MongoDB, Redis
+Cloud: AWS, Azure, Google Cloud Platform
+DevOps: Docker, Kubernetes, Jenkins, GitLab CI
+Tools: Git, Jira, Confluence, VS Code, IntelliJ
+
+CONTACT INFORMATION
+LinkedIn: https://linkedin.com/in/markfrihar
+GitHub: https://github.com/markfrihar
+Preferred Contact: email

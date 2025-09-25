@@ -1,0 +1,75 @@
+
+MARK RIHAR
+Toronto, ON M6S 3H2 | (905) 802-3472 | mrihar@gmail.com | linkedin.com/in/markrihar
+
+
+SENIOR TECHNOLOGY LEADER
+Results-oriented executive with deep experience aligning technology, data strategy, and operations to deliver measurable business value. A skilled communicator and negotiator, trusted by senior leadership to drive cross-functional initiatives, modernize systems, and lead teams through transformation with clarity and purpose.
+
+AREAS OF EXPERTISE
+Technology & Business Leadership | Data Strategy & Governance | Intelligent Automation & AI Integration | Business Intelligence & Analytics | Cross-Functional Program Delivery | Process Optimization & Change Management | IT Project Management | AI-Driven Predictive Modeling & Forecasting | Executive Stakeholder Engagement | Scalable Systems Design | SQL & Python
+
+PROFESSIONAL EXPERIENCE
+MEXTROLINX, Toronto ON	
+August 11, 2022 
+Sr. Manager, IT Contract Management
+Managed the IT contract/vendor management team of 9. Redesigned the data workflow and governance policies. Facilitated the ongoing procurement process for IT.
+* Directed IT contract/vendor operations for a $75MM portfolio across 400 contracts and 100+ vendors, aligning procurement strategy with organizational priorities
+* Instituted a formal governance framework and chaired weekly strategic procurement sessions with C-suite stakeholders, increasing transparency and stakeholder satisfaction
+* Architected a Microsoft-based, event-driven contract management workflow integrating Power BI, Power Automate, and AI to streamline cross-functional processes, saving 1,000+ hours annually using Lean, ITIL, and design thinking methodologies
+o Designed, authored, and operationalized organization-wide data governance policies, standards, and control, ensuring full alignment with regulatory and corporate requirements
+o Established and executed governance control routines, including annual data certification, policy verification, and data health checks, integrating controls into risk management processes
+o Defined and operationalized data quality dimensions
+* Spearheaded cross-departmental adoption of Oracle Primavera Unifier through an Agile framework. This platform became the new contract management platform
+* Chaired weekly procurement strategy meetings with the CIO and senior leadership team. Regular survey feedback showed an overall increase in stakeholder sentiment
+
+SHOPIFY INC., Toronto ON	
+March1, 2019 ? August 31, 2021
+Data Governance, Lead
+Led Agile teams to help design and implement a data governance program for the Customer Support/IT organizations. 
+* Launched and led a data governance program for Customer Support and IT, embedding structure and data quality standards across operations
+* Designed a comprehensive data dictionary to resolve critical data deficiencies, leveraging Shopify's complex data stack including real-time pipelines and distributed systems, to enhance accuracy and system reliability
+* Built a cross-functional ITIL-based problem management framework, enabling issue prioritization and lifecycle tracking across technical departments
+* Developed and implemented a comprehensive Data Governance Framework, defining metadata, roles and responsibilities for Data Owners, Data Stewards, and Data Custodians
+* Evaluated and piloted Microsoft Purview for metadata management, enterprise data cataloging, and data lineage documentation, ensuring discoverability and compliance
+* Developed and delivered training programs for stakeholders and new employees
+
+
+
+LOBLAW COMPANIES LIMITED, Toronto ON	
+May 2016 ? November 2017
+Sr. Manager, Strategic Procurement
+Managed spend on goods and services not for resale including facilities management, real estate, and consulting services. Responsible for design and delivery of yearly procurement strategy. Tasked with developing innovative solutions for expense optimization using analytical methods and partnering closely with Legal and the Business. $3.5MM YOY savings delivered in 2017, $1MM above target.
+* Delivered $3.5MM in annual savings through analytical sourcing and process optimization strategies, exceeding targets by $1MM
+* Advanced capital projects that generated $5MM in five-year savings, optimizing facilities and real estate expenditure
+* Proposed and led flooring material consolidation across pharmacies, realizing $9MM in cost reduction while achieving legislative compliance
+* Engineered waste management strategies generating $14MM in revenue through improved vendor negotiations. and materials market optimization
+
+MANULIFE FINANCIAL, Kitchener ON	
+October 2013 ? March 2016
+Business Intelligence Consultant
+Guided management, software developers and data architects in designing and implementing Business Intelligence (BI) solutions.
+* Led cross-functional deployment of QlikView BI platform, standardizing KPI tracking across all operational units.
+* Automated finance dashboards, saving 40+ hours monthly and enhancing financial transparency
+* Directed Voice of Customer programs and workforce planning models, enhancing resource forecasting and operational insight
+* Developed executive dashboards through an integrated request workflow all based on the QlikView BI Platform
+
+
+BLACKBERRY LIMITED, Waterloo ON	
+October 2005 ? September 2013
+Sr. Manager, Data Analytics 
+Managed two teams (15 people) consisting of statisticians, engineers, and software developers. The teams provided Business Intelligence to Marketing, Software Engineering, Product Quality, Product Management, Legal, Support Operations and other internal organizations. Managed the Customer Survey team which conducted survey programs to collect data with the goal of improving/maintaining customer experience scores.
+* Managed 15-member analytics teams delivering enterprise-wide BI services and insights to departments including Product, Marketing, and Legal
+* Implemented organization-wide data classification and tagging strategies, working closely with Information Security and Privacy
+* Developed SAS-based executive dashboards coupled with automated reporting routines, saving 100+ hours/month
+* Initiated predictive social media and text analytics models for early issue detection, resulting in a $2MM cost avoidance
+
+EDUCATION
+* Master of Business Administration (MBA) with CPA Option, Laurier University
+* Bachelors of Business Administration, Yorkville University (Dean?s Honors List)
+* Mechanical Engineering in Robotics and Automation, Conestoga College
+* Bachelor of Applied Science in Mechanical Engineering, University of Waterloo (7 of 8 terms completed)
+
+PROFESSIONAL DESIGNATIONS AND AFFILIATIONS
+ITIL v3 Foundation Certification
+Board Member: Yorkville University ? Seat on the Program Advisory Board
