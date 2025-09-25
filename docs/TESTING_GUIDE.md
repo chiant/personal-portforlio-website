@@ -2,16 +2,23 @@
 
 ## 🚀 Quick Start
 
-1. **Start the development server:**
+1. **Start the backend server:**
+   ```bash
+   cd server
+   npm start
+   ```
+
+2. **Start the frontend development server:**
    ```bash
    npm run dev
    ```
 
-2. **Access the application:**
-   - Main website: `http://localhost:5173/`
-   - Management console: `http://localhost:5173/admin`
+3. **Access the application:**
+   - Main website: `http://localhost:3000/`
+   - Management console: `http://localhost:3000/management`
+   - Backend API: `http://localhost:3004`
 
-3. **Login credentials:**
+4. **Login credentials:**
    - Username: `admin`
    - Password: `admin123`
 
@@ -20,36 +27,53 @@
 ### 1. **Profile Management Testing**
 
 #### Test Multi-Profile Functionality:
-1. Go to `/admin` and login
-2. Click on **"Profiles"** tab
-3. **Create a new profile:**
-   - Click "Create Profile" button
+1. Go to `/management` and login
+2. Navigate to **"Profile Management"** section
+3. **Create a new profile manually:**
+   - Click "Create New Profile"
+   - Select "Create new profile by manual input"
    - Enter name: "Test Profile - Data Engineer"
    - Enter description: "Test profile for data engineering role"
+   - Enter endpoint: "test-data-engineer"
    - Click "Create Profile"
-4. **Switch between profiles:**
-   - Click "Switch" on the new profile
-   - Verify the main website updates with new profile data
-   - Switch back to original profile
-5. **Duplicate a profile:**
-   - Click the copy icon on any profile
-   - Verify a new profile is created with "(Copy)" suffix
-6. **Delete a profile:**
-   - Try to delete the active profile (should be prevented)
-   - Delete a non-active profile (should work)
+4. **Create a profile by uploading resume:**
+   - Click "Create New Profile"
+   - Select "Create new profile by uploading a resume"
+   - Upload a PDF, DOC, or TXT resume file
+   - Verify resume parsing and profile creation
+5. **Copy an existing profile:**
+   - Click "Create New Profile"
+   - Select "Create new profile by copying existing profile"
+   - Choose an existing profile to copy
+   - Verify new profile is created with copied data
+6. **Manage existing profiles:**
+   - View profile cards with QR codes
+   - Test activation/deactivation toggle
+   - Edit profile metadata (name, description, endpoint)
+   - Delete profiles (with confirmation)
 
 #### Test Profile Data Editing:
-1. Go to **"Personal Info"** tab
+1. Select a profile and navigate to **"Personal Info"** editor
 2. **Edit personal information:**
    - Change "Full Name" to "Test User"
    - Change "Professional Title" to "Test Engineer"
-   - Verify "Unsaved Changes" indicator appears
-3. **Save changes:**
-   - Click "Save Changes" button
-   - Verify success message and indicator disappears
-4. **Verify on main website:**
-   - Go to main website (`/`)
-   - Verify changes are reflected
+   - Verify auto-save functionality (no manual save needed)
+3. **Test other editors:**
+   - Navigate to "Competencies" editor
+   - Add/edit core competencies
+   - Navigate to "Experience" editor
+   - Add/edit work experience entries
+   - Navigate to "Education" editor
+   - Add/edit education entries
+   - Navigate to "Certifications" editor
+   - Add/edit certifications
+   - Navigate to "Skills" editor
+   - Add/edit technical skills
+   - Navigate to "Media" editor
+   - Upload profile photo and CV document
+4. **Verify on profile website:**
+   - Go to profile endpoint (e.g., `/test-data-engineer`)
+   - Verify all changes are reflected
 
 ### 2. **Experience Management Testing**
 
@@ -109,39 +133,87 @@
 4. **Edit and delete skills**
 5. **Verify on main website**
 
-### 6. **Message Management Testing**
+### 6. **Advanced Features Testing**
 
-1. Go to **"Messages"** tab
+#### Resume Parsing Testing:
+1. **Test PDF resume parsing:**
+   - Upload a PDF resume file
+   - Verify text extraction and parsing
+   - Check if profile data is populated correctly
+2. **Test DOC/DOCX resume parsing:**
+   - Upload a Word document resume
+   - Verify text extraction from Word format
+   - Check profile data population
+3. **Test TXT resume parsing:**
+   - Upload a plain text resume
+   - Verify text parsing and data extraction
+4. **Test LLM integration:**
+   - Verify OpenAI API integration
+   - Check structured data extraction
+   - Test error handling for invalid files
+
+#### QR Code Testing:
+1. **Generate QR codes:**
+   - View profile cards in management console
+   - Verify QR codes are generated for each profile
+   - Test QR code scanning with mobile device
+2. **QR code functionality:**
+   - Scan QR code and verify it opens correct profile URL
+   - Test QR code display and sizing
+
+#### File Management Testing:
+1. **Upload profile photos:**
+   - Upload various image formats (JPG, PNG)
+   - Verify file naming conventions
+   - Test file storage in upload/photo directory
+2. **Upload CV documents:**
+   - Upload PDF, DOC, DOCX files
+   - Verify file naming conventions
+   - Test file storage in upload/cv directory
+3. **File operations:**
+   - Test file viewing (PDF viewer)
+   - Test file downloading
+   - Test file removal with confirmation
+
+### 7. **Message Management Testing**
+
+1. Go to **"Message Management"** section
 2. **Submit test messages:**
-   - Go to main website (`/`)
+   - Go to any profile page (e.g., `/brian-sun-ds`)
    - Scroll to Contact section
    - Fill out and submit contact form
    - Submit multiple test messages
 3. **Manage messages:**
-   - Go back to admin console
-   - View messages in the Messages tab
+   - Go back to management console
+   - View messages in the Message Management section
    - Test search functionality
    - Test status filtering (unread, read, replied, archived)
    - Mark messages as read/replied/archived
    - Delete individual messages
    - Test "Delete All" functionality
 
-### 7. **Data Persistence Testing**
+### 8. **Data Persistence Testing**
 
 1. **Test localStorage persistence:**
    - Make changes in management console
    - Refresh the page
    - Verify changes are still there
-2. **Test profile switching persistence:**
-   - Switch to different profile
+2. **Test profile data persistence:**
+   - Create new profiles
+   - Edit profile data
    - Refresh page
-   - Verify correct profile is still active
+   - Verify all data is preserved
 3. **Test message persistence:**
    - Submit messages
    - Refresh page
    - Verify messages are still there
+4. **Test session management:**
+   - Login to management console
+   - Test 60-minute session timeout
+   - Test 5-minute warning dialog
+   - Test session extension functionality
 
-### 8. **Cross-Platform Testing**
+### 9. **Cross-Platform Testing**
 
 1. **Test on different screen sizes:**
    - Desktop (1920x1080)
@@ -151,6 +223,11 @@
    - Verify all forms work on mobile
    - Check navigation works on all sizes
    - Test modal dialogs on mobile
+   - Test QR code scanning on mobile devices
+3. **Test endpoint-based routing:**
+   - Access different profile endpoints
+   - Test invalid endpoint handling
+   - Verify profile switching via URL
 
 ## 🐛 Common Issues to Check
 
@@ -172,24 +249,33 @@
 ## 📊 Expected Results
 
 ### ✅ Success Criteria:
-1. All forms save data correctly
-2. Profile switching works seamlessly
-3. Messages are stored and manageable
-4. Main website reflects all changes
-5. Data persists across page refreshes
-6. Responsive design works on all devices
-7. No console errors
-8. All animations and transitions work smoothly
+1. All profile creation methods work (manual, resume upload, copy)
+2. Multi-profile management functions correctly
+3. Auto-save functionality works for all editors
+4. Resume parsing extracts data accurately
+5. QR codes generate and function properly
+6. File upload and management works correctly
+7. Endpoint-based routing functions properly
+8. Session management works as expected
+9. Messages are stored and manageable
+10. Data persists across page refreshes
+11. Responsive design works on all devices
+12. No console errors
+13. All animations and transitions work smoothly
 
 ### 🚨 Failure Indicators:
-1. Data not saving
-2. Profile switching not working
-3. Messages not appearing
-4. Main website not updating
-5. Data lost on refresh
-6. Mobile layout broken
-7. Console errors
-8. Forms not submitting
+1. Profile creation failing
+2. Resume parsing not working
+3. QR codes not generating
+4. File uploads failing
+5. Auto-save not functioning
+6. Session timeout issues
+7. Endpoint routing not working
+8. Data not persisting
+9. Messages not appearing
+10. Mobile layout broken
+11. Console errors
+12. Forms not submitting
 
 ## 🔧 Debugging Tips
 
@@ -207,11 +293,16 @@ Tester: ___________
 Browser: ___________
 Device: ___________
 
+Profile Creation (Manual): ✅/❌
+Profile Creation (Resume Upload): ✅/❌
+Profile Creation (Copy): ✅/❌
 Profile Management: ✅/❌
-Experience Management: ✅/❌
-Education Management: ✅/❌
-Certifications Management: ✅/❌
-Skills Management: ✅/❌
+Resume Parsing: ✅/❌
+QR Code Generation: ✅/❌
+File Management: ✅/❌
+Auto-save Functionality: ✅/❌
+Session Management: ✅/❌
+Endpoint Routing: ✅/❌
 Message Management: ✅/❌
 Data Persistence: ✅/❌
 Responsive Design: ✅/❌
@@ -227,8 +318,12 @@ Overall Status: ✅ PASS / ❌ FAIL
 ## 🎯 Performance Expectations
 
 - Page load time: < 3 seconds
-- Form submission: < 1 second
+- Profile creation: < 5 seconds
+- Resume parsing: < 30 seconds
+- File upload: < 10 seconds
+- Auto-save: < 1 second
 - Profile switching: < 500ms
+- QR code generation: < 1 second
 - Message loading: < 1 second
 - Mobile responsiveness: 100%
 - No memory leaks

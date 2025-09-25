@@ -1,25 +1,28 @@
 # Product Requirements Document (PRD)
-## Professional Portfolio Website & Management Console
+## CVBot - Multi-Profile Portfolio Management System
 
 ### 1. Project Overview
 
-**Project Name:** Brian Sun Professional Portfolio Website  
-**Version:** 1.0  
-**Date:** December 2024  
-**Target Audience:** HR Recruiters, Hiring Managers, Potential Employers  
+**Project Name:** CVBot - Professional Portfolio Management System  
+**Version:** 2.0  
+**Date:** January 2025  
+**Target Audience:** HR Recruiters, Hiring Managers, Potential Employers, Portfolio Managers  
 
 ### 2. Executive Summary
 
-A modern, responsive professional portfolio website that serves as a digital resume for Brian Sun, a Certified Senior Data Scientist. The platform includes a public-facing portfolio and a private management console for content updates. All data is stored in JSON format to ensure maintainability and separation of concerns.
+CVBot is a comprehensive multi-profile portfolio management system that enables users to create, manage, and maintain multiple professional profiles from a single interface. The system features a modern, responsive frontend with endpoint-based routing, a powerful management console with hierarchical navigation, and advanced features including resume parsing, QR code generation, and file management. Built with React, TypeScript, and a Node.js backend, it provides a complete solution for professional portfolio management.
 
 ### 3. Business Objectives
 
-- **Primary Goal:** Create an impressive digital presence for job applications
+- **Primary Goal:** Provide a comprehensive multi-profile portfolio management system
 - **Secondary Goals:** 
-  - Demonstrate technical expertise through the website itself
-  - Provide easy content management capabilities
-  - Showcase professional achievements and certifications
-  - Enable PDF CV download for traditional applications
+  - Enable creation and management of multiple professional profiles
+  - Demonstrate technical expertise through advanced features
+  - Provide intuitive content management with hierarchical navigation
+  - Support resume parsing and automated profile creation
+  - Enable QR code generation for easy profile sharing
+  - Provide robust file management and upload capabilities
+  - Support endpoint-based routing for multiple profiles
 
 ### 4. User Personas
 
@@ -29,117 +32,128 @@ A modern, responsive professional portfolio website that serves as a digital res
 - **Pain Points:** Time constraints, need for clear information hierarchy
 - **Device Usage:** Desktop, tablet, mobile
 
-#### 4.2 Secondary Users (Brian Sun - Content Manager)
-- **Goals:** Update portfolio content, manage certifications, track changes
-- **Pain Points:** Need for easy content updates without technical knowledge
-- **Device Usage:** Primarily desktop for management tasks
+#### 4.2 Secondary Users (Portfolio Managers)
+- **Goals:** Create and manage multiple profiles, upload and parse resumes, organize content
+- **Pain Points:** Need for efficient multi-profile management, resume parsing capabilities
+- **Device Usage:** Primarily desktop for management tasks, mobile for viewing
+
+#### 4.3 Tertiary Users (Profile Viewers)
+- **Goals:** Access specific profiles via unique endpoints, download CVs, contact professionals
+- **Pain Points:** Need for quick access to relevant information, mobile-friendly experience
+- **Device Usage:** Desktop, tablet, mobile across all devices
 
 ### 5. Functional Requirements
 
-#### 5.1 Public Portfolio Website
+#### 5.1 Multi-Profile Portfolio System
 
-**5.1.1 Homepage/Hero Section**
-- Professional headshot with overlay text
-- Name, title, and key value proposition
-- Call-to-action buttons (Download CV, Contact, View Portfolio)
-- Smooth scroll navigation
+**5.1.1 Endpoint-Based Routing**
+- Unique URL endpoints for each profile (e.g., `/brian-sun-ds`, `/data-engineer`)
+- Dynamic profile loading based on endpoint
+- Fallback handling for invalid endpoints
+- SEO-friendly URLs for each profile
 
-**5.1.2 About Section**
-- Professional summary from CV
-- Core competencies as interactive skill tags
-- Personal branding elements
+**5.1.2 Profile Display Components**
+- **Hero Section:** Professional headshot, name, title, summary
+- **About Section:** Professional summary and core competencies
+- **Experience Section:** Chronological work experience with achievements
+- **Education Section:** Academic qualifications and institutions
+- **Certifications Section:** Categorized certifications with verification links
+- **Skills Section:** Technical skills with proficiency indicators
+- **Contact Section:** Contact information and social media links
+- **QR Code Integration:** Automatic QR code generation for profile sharing
 
-**5.1.3 Experience Section**
-- Chronological work experience with:
-  - Company name, position, dates
-  - Key achievements with metrics
-  - Technology stack used
-  - Interactive timeline view
-
-**5.1.4 Education Section**
-- Academic qualifications with institutions
-- Graduation dates and degrees
-- Relevant coursework or achievements
-
-**5.1.5 Certifications Section**
-- Categorized certifications (Data Science, Engineering, BI, Programming)
-- Clickable certification badges with verification links
-- Issue dates and issuing organizations
-
-**5.1.6 Technical Skills Section**
-- Categorized technical skills with proficiency indicators
-- Interactive skill matrix or tag cloud
-- Technology logos/icons where appropriate
-
-**5.1.7 Contact Section**
-- Contact information
-- Professional social media links
-- Contact form with validation
-
-**5.1.8 Additional Features**
+**5.1.3 Responsive Design Features**
 - Dark/Light theme toggle
-- Responsive design for all devices
-- SEO optimization
-- Fast loading times
+- Mobile-first responsive design
+- Fast loading times with optimized assets
 - Accessibility compliance (WCAG 2.1)
+- SEO optimization for each profile endpoint
 
-#### 5.2 Management Console
+#### 5.2 Hierarchical Management Console
 
-**5.2.1 Authentication**
-- Secure login system
-- Session management
-- Password protection
+**5.2.1 Authentication & Session Management**
+- Secure login system with session timeout
+- 60-minute session duration with 5-minute warning
+- Activity-based session extension
+- Password protection and secure logout
 
-**5.2.2 Dashboard**
-- Overview of all sections
-- Quick edit access
-- Change history/log
+**5.2.2 Hierarchical Navigation System**
+- **Profile Management Section:**
+  - Create new profile (manual input, resume upload, copy existing)
+  - Manage existing profiles with QR codes
+  - Profile activation/deactivation
+  - Profile editing and deletion
+- **Message Management Section:**
+  - View and manage visitor messages
+  - Message filtering and search
+  - Status management (read, replied, archived)
 
-**5.2.3 Content Management**
-- **Personal Information:** Name, title, contact details, profile photo
-- **Summary:** Professional summary editing
-- **Experience:** Add/edit/delete work experience entries
-- **Education:** Manage educational background
-- **Certifications:** Add/edit certifications with links
-- **Skills:** Manage technical skills and categories
-- **Media:** Upload and manage profile photos, documents
+**5.2.3 Advanced Profile Creation**
+- **Manual Profile Creation:** Step-by-step form-based creation
+- **Resume Upload & Parsing:** Support for PDF, DOC, DOCX, TXT formats
+- **LLM Integration:** OpenAI GPT-based resume parsing
+- **Profile Copying:** Duplicate existing profiles as templates
 
-**5.2.4 Data Management**
-- JSON data validation
-- Backup and restore functionality
-- Export/import capabilities
-- Version control for changes
+**5.2.4 Content Management System**
+- **Personal Information Editor:** Name, title, contact details, profile photo
+- **Competencies Editor:** Core competencies management
+- **Experience Editor:** Work experience with achievements and technologies
+- **Education Editor:** Academic background management
+- **Certifications Editor:** Professional certifications with categories
+- **Skills Editor:** Technical skills with proficiency levels
+- **Media Editor:** Profile photos and CV document management
+- **Contact Editor:** Contact information and social media links
 
-**5.2.5 Preview System**
-- Live preview of changes
-- Side-by-side comparison
-- Publish/unpublish functionality
+**5.2.5 File Management System**
+- **Physical File Storage:** Organized upload directories (`upload/cv`, `upload/photo`)
+- **File Naming Conventions:** Automatic naming based on profile endpoints
+- **File Operations:** Upload, view, download, and remove files
+- **Custom Download Names:** User-defined CV download filenames
+
+**5.2.6 Data Management & Persistence**
+- **Auto-save Functionality:** Real-time data persistence
+- **JSON Schema Validation:** Data integrity and structure validation
+- **Local Storage:** Client-side data persistence
+- **Backup & Restore:** Profile data backup capabilities
 
 ### 6. Technical Requirements
 
 #### 6.1 Architecture
-- **Frontend:** Modern JavaScript framework (React/Vue.js)
-- **Backend:** Node.js/Express or Python/FastAPI
-- **Database:** JSON file-based storage (expandable to database)
-- **Hosting:** Static site generation with API endpoints
+- **Frontend:** React 18 with TypeScript, Vite build system
+- **Backend:** Node.js/Express server for file operations and resume parsing
+- **Data Storage:** JSON file-based storage with localStorage persistence
+- **File Management:** Physical file system with organized directory structure
+- **Routing:** React Router DOM with endpoint-based routing
+- **Styling:** Tailwind CSS with PostCSS processing
 
-#### 6.2 Data Structure
-- JSON schema for all portfolio data
-- Separation of public and private data
-- Version control for data changes
-- Validation schemas
+#### 6.2 Project Structure
+- **Modular Architecture:** Organized into logical folders (pages, services, types, utils)
+- **Component Hierarchy:** Separated profile and management components
+- **Service Layer:** Dedicated services for data, file upload, and resume parsing
+- **Type Safety:** Comprehensive TypeScript interfaces and type definitions
 
-#### 6.3 Performance Requirements
+#### 6.3 Advanced Features
+- **Resume Parsing:** Multi-format support (PDF, DOC, DOCX, TXT) with LLM integration
+- **QR Code Generation:** Automatic QR code creation for profile sharing
+- **File Upload System:** Multer-based file handling with naming conventions
+- **Session Management:** Activity-based session timeout with warning system
+- **Auto-save:** Real-time data persistence without manual save actions
+
+#### 6.4 Performance Requirements
 - Page load time: < 3 seconds
 - Mobile responsiveness: 100%
 - SEO score: > 90
 - Accessibility score: > 95
+- File upload processing: < 10 seconds for typical resumes
+- Resume parsing: < 30 seconds for complex documents
 
-#### 6.4 Security Requirements
+#### 6.5 Security Requirements
 - Secure authentication for management console
+- Session timeout and activity monitoring
 - Input validation and sanitization
+- File upload security and validation
 - HTTPS encryption
-- Regular security updates
+- Environment variable protection for API keys
 
 ### 7. Design Requirements
 
@@ -196,37 +210,43 @@ A modern, responsive professional portfolio website that serves as a digital res
 - Professional network growth
 - Recruiter feedback
 
-### 10. Implementation Plan
+### 10. Implementation Status
 
-#### Phase 1: Foundation (Week 1-2)
-- JSON schema design
-- Data extraction from CV
-- Basic project structure
+#### ✅ Phase 1: Foundation (Completed)
+- JSON schema design and validation
+- Project structure reorganization
 - Development environment setup
+- TypeScript configuration and type definitions
 
-#### Phase 2: Frontend Development (Week 3-4)
-- Portfolio website UI/UX
+#### ✅ Phase 2: Frontend Development (Completed)
+- Multi-profile portfolio system with endpoint-based routing
 - Responsive design implementation
-- Interactive components
-- Content integration
+- Component architecture with hierarchical organization
+- Content integration and data management
 
-#### Phase 3: Management Console (Week 5-6)
-- Authentication system
-- Content management interface
-- Data validation and storage
-- Preview functionality
+#### ✅ Phase 3: Management Console (Completed)
+- Hierarchical navigation system
+- Authentication with session management
+- Advanced content management interface
+- Auto-save functionality and data persistence
 
-#### Phase 4: Integration & Testing (Week 7-8)
-- System integration
+#### ✅ Phase 4: Advanced Features (Completed)
+- Resume parsing with LLM integration
+- QR code generation for profile sharing
+- File management system with physical storage
+- Backend server for file operations
+
+#### ✅ Phase 5: Integration & Testing (Completed)
+- System integration and testing
 - Performance optimization
-- Security testing
-- User acceptance testing
+- Security implementation
+- Documentation and user guides
 
-#### Phase 5: Deployment & Launch (Week 9-10)
-- Production deployment
-- SEO optimization
-- Analytics setup
-- Documentation and training
+#### 🚀 Phase 6: Current Status (Active)
+- Production-ready system
+- Comprehensive testing guide
+- GitHub synchronization
+- Ongoing maintenance and enhancements
 
 ### 11. Risk Assessment
 
@@ -256,11 +276,11 @@ A modern, responsive professional portfolio website that serves as a digital res
 
 ### 13. Conclusion
 
-This PRD outlines a comprehensive solution for Brian Sun's professional portfolio website that will effectively showcase his expertise as a Senior Data Scientist while providing easy content management capabilities. The focus on modern design, technical excellence, and user experience will create a compelling digital presence for potential employers and recruiters.
+CVBot represents a comprehensive multi-profile portfolio management system that successfully addresses the complex needs of modern professional portfolio management. The system's advanced features, including resume parsing, QR code generation, hierarchical navigation, and endpoint-based routing, provide a robust solution for creating and managing multiple professional profiles. The implementation demonstrates technical excellence through modern React architecture, TypeScript integration, and comprehensive testing, creating a compelling and maintainable digital presence solution.
 
 ---
 
-**Document Status:** Draft  
-**Next Review Date:** TBD  
-**Approval Required:** Brian Sun  
-**Implementation Start Date:** TBD
+**Document Status:** Final  
+**Last Updated:** January 2025  
+**Implementation Status:** Production Ready  
+**Next Review Date:** Quarterly

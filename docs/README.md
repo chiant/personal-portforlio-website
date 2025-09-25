@@ -1,80 +1,101 @@
-# Brian Sun - Professional Portfolio Website
+# CVBot - Multi-Profile Portfolio Management System
 
-A modern, responsive professional portfolio website built with React, TypeScript, and Tailwind CSS. This project serves as a digital resume for Brian Sun, a Certified Senior Data Scientist, featuring a public-facing portfolio and a private management console for content updates.
+A comprehensive multi-profile portfolio management system built with React, TypeScript, and Node.js. CVBot enables users to create, manage, and maintain multiple professional profiles from a single interface, featuring advanced capabilities including resume parsing, QR code generation, and hierarchical content management.
 
 ## 🚀 Features
 
-### Public Portfolio
-- **Modern Design**: Clean, professional UI with smooth animations
-- **Responsive Layout**: Optimized for desktop, tablet, and mobile devices
-- **Interactive Sections**: 
-  - Hero section with professional headshot
-  - About section with core competencies
-  - Experience timeline with detailed achievements
-  - Education and certifications showcase
-  - Technical skills with proficiency indicators
-  - Contact form with validation
-- **SEO Optimized**: Meta tags, Open Graph, and structured data
+### Multi-Profile Portfolio System
+- **Endpoint-Based Routing**: Unique URLs for each profile (e.g., `/brian-sun-ds`, `/data-engineer`)
+- **Dynamic Profile Loading**: Automatic profile switching based on URL endpoints
+- **QR Code Generation**: Automatic QR codes for easy profile sharing
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Modern UI**: Clean, professional interface with smooth animations
+- **SEO Optimized**: Meta tags, Open Graph, and structured data for each profile
 - **Accessibility**: WCAG 2.1 compliant with keyboard navigation
 - **Performance**: Fast loading with optimized images and code splitting
 
-### Management Console
-- **Secure Authentication**: Login system for content management
-- **Content Management**: Edit personal information, experience, skills, etc.
-- **Live Preview**: Preview changes before publishing
-- **Data Validation**: JSON schema validation for data integrity
-- **Backup & Restore**: Version control and backup capabilities
+### Hierarchical Management Console
+- **Secure Authentication**: Login system with 60-minute session timeout
+- **Hierarchical Navigation**: Organized tree structure for easy navigation
+- **Multi-Profile Management**: Create, edit, activate/deactivate, and delete profiles
+- **Advanced Profile Creation**: Manual input, resume upload, or copy existing profiles
+- **Auto-save Functionality**: Real-time data persistence without manual saves
+- **Content Management**: Comprehensive editors for all profile sections
+- **File Management**: Upload, organize, and manage profile photos and CV documents
+- **Message Management**: View and manage visitor messages with filtering
 
-### Technical Features
+### Advanced Technical Features
+- **Resume Parsing**: Multi-format support (PDF, DOC, DOCX, TXT) with LLM integration
+- **File Management**: Physical file storage with organized directory structure
+- **Session Management**: Activity-based timeout with warning system
 - **TypeScript**: Full type safety and better development experience
 - **React 18**: Latest React features with hooks and concurrent rendering
 - **Tailwind CSS**: Utility-first CSS framework for rapid styling
 - **Framer Motion**: Smooth animations and transitions
 - **JSON Data Storage**: All content stored in structured JSON format
-- **Component Architecture**: Modular, reusable components
+- **Component Architecture**: Modular, reusable components with hierarchical organization
 
 ## 🛠️ Technology Stack
 
 - **Frontend**: React 18, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **File Processing**: Multer, pdf-parse, OpenAI API
 - **Animation**: Framer Motion
 - **Icons**: Lucide React
+- **QR Codes**: qrcode library
 - **Build Tool**: Vite
 - **Linting**: ESLint, Prettier
 - **Data**: JSON with TypeScript interfaces
+- **Routing**: React Router DOM
 
 ## 📁 Project Structure
 
 ```
 CVBot/
-├── public/                     # Static assets
+├── config/                   # Configuration files
+│   ├── vite.config.ts       # Vite configuration
+│   ├── tsconfig.json        # TypeScript configuration
+│   ├── tailwind.config.js   # Tailwind CSS configuration
+│   └── postcss.config.js    # PostCSS configuration
+├── docs/                     # Documentation
+│   ├── PRD.md              # Product Requirements Document
+│   ├── README.md           # Project documentation
+│   ├── TESTING_GUIDE.md    # Testing guide
+│   └── samples/            # Sample files
+├── public/                   # Static assets
+│   └── icons/              # SVG icons
+├── server/                   # Backend server
+│   ├── server.js           # Express server
+│   ├── package.json        # Server dependencies
+│   └── upload/             # File upload directories
+│       ├── cv/             # CV documents
+│       └── photo/          # Profile photos
 ├── src/
-│   ├── components/            # React components
-│   │   ├── management/        # Management console components
-│   │   ├── Header.tsx         # Navigation header
-│   │   ├── Hero.tsx          # Hero section
-│   │   ├── About.tsx         # About section
-│   │   ├── Experience.tsx    # Work experience
-│   │   ├── Education.tsx     # Education section
-│   │   ├── Certifications.tsx # Certifications
-│   │   ├── Skills.tsx        # Technical skills
-│   │   ├── Contact.tsx       # Contact form
-│   │   ├── Footer.tsx        # Footer
-│   │   └── ...
-│   ├── data/                 # Data management
-│   │   ├── profileData.ts    # Data utilities
-│   │   └── profile-data.json # Main data file
-│   ├── types/                # TypeScript type definitions
-│   ├── App.tsx              # Main app component
-│   └── main.tsx             # App entry point
-├── data/                     # JSON data files
-│   ├── profile-data.json     # Main profile data
-│   └── profile-schema.json   # JSON schema
-├── doc/                      # Documents
-│   ├── Brian Sun - CV - PDF version.pdf
-│   └── Brian Sun - CV - text version.txt
-├── image/                    # Images
-│   └── profile-photo.jpg
-└── PRD.md                   # Product Requirements Document
+│   ├── app/                # Main application
+│   │   ├── App.tsx         # Root component
+│   │   ├── main.tsx        # Entry point
+│   │   └── index.css       # Global styles
+│   ├── pages/              # Page components
+│   │   ├── profile/        # Profile page components
+│   │   │   ├── ProfilePage.tsx
+│   │   │   ├── components/ # Profile display components
+│   │   │   └── shared/     # Shared profile components
+│   │   └── management/     # Management console
+│   │       ├── ManagementPage.tsx
+│   │       ├── LoginPage.tsx
+│   │       └── components/ # Management components
+│   ├── services/           # Service layer
+│   │   ├── dataService.ts  # Data management
+│   │   ├── fileUploadService.ts # File operations
+│   │   └── resumeParserService.ts # Resume parsing
+│   ├── types/              # TypeScript definitions
+│   └── utils/              # Utility functions
+├── upload/                  # User uploads
+│   ├── cv/                 # CV documents
+│   └── photo/              # Profile photos
+├── unused/                  # Archived files
+└── data/                    # JSON data files
+    └── profile-schema.json  # Data schema
 ```
 
 ## 🚀 Getting Started
@@ -82,27 +103,50 @@ CVBot/
 ### Prerequisites
 - Node.js 18+ 
 - npm or yarn
+- OpenAI API key (for resume parsing feature)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/chiant/personal-portforlio-website.git
    cd CVBot
    ```
 
-2. **Install dependencies**
+2. **Install frontend dependencies**
    ```bash
    npm install
    ```
 
-3. **Start development server**
+3. **Install backend dependencies**
+   ```bash
+   cd server
+   npm install
+   cd ..
+   ```
+
+4. **Set up environment variables**
+   Create a `.env` file in the server directory:
+   ```env
+   OPENAI_API_KEY=your_openai_api_key_here
+   PORT=3004
+   ```
+
+5. **Start the backend server**
+   ```bash
+   cd server
+   npm start
+   ```
+
+6. **Start the frontend development server**
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
+7. **Access the application**
+   - Main website: `http://localhost:3000`
+   - Management console: `http://localhost:3000/management`
+   - Backend API: `http://localhost:3004`
 
 ### Available Scripts
 
@@ -125,9 +169,17 @@ All portfolio content is stored in `data/profile-data.json` following a structur
 - **Validation**: JSON schema validation for data integrity
 
 ### Management Console
-Access the management console at `/admin` with demo credentials:
+Access the management console at `/management` with demo credentials:
 - **Username**: admin
 - **Password**: admin123
+
+**Features:**
+- Create new profiles manually or by uploading resumes
+- Manage multiple profiles with activation/deactivation
+- Edit all profile content with auto-save functionality
+- Upload and manage profile photos and CV documents
+- View and manage visitor messages
+- Generate QR codes for profile sharing
 
 ## 🎨 Customization
 
