@@ -1948,7 +1948,7 @@ const ProfileDataOverview: React.FC<{ profileData: ProfileData }> = ({ profileDa
             </label>
 {(() => {
               const hasCustomPhoto = profileData.media.profilePhoto.url && profileData.media.profilePhoto.url.trim() !== '';
-              const photoSrc = hasCustomPhoto ? profileData.media.profilePhoto.url : '/gender-neutral-user.svg';
+              const photoSrc = hasCustomPhoto ? profileData.media.profilePhoto.url : '/icons/gender-neutral-user.svg';
               const photoAlt = hasCustomPhoto ? 'Profile photo' : 'Default profile avatar';
               const photoStatus = hasCustomPhoto ? '✓ Custom photo' : '⚙️ Default avatar';
               

@@ -206,7 +206,7 @@ const MediaEditor: React.FC<MediaEditorProps> = ({ media, onUpdate, endpoint, pr
             <div className="relative">
               {(() => {
                 const hasCustomPhoto = formData.profilePhoto.url && formData.profilePhoto.url.trim() !== '';
-                const photoSrc = hasCustomPhoto ? formData.profilePhoto.url : '/gender-neutral-user.svg';
+                const photoSrc = hasCustomPhoto ? formData.profilePhoto.url : '/icons/gender-neutral-user.svg';
                 const photoAlt = hasCustomPhoto ? 'Profile photo' : 'Default profile avatar';
                 
                 return (

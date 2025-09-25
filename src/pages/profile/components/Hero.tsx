@@ -40,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ personalInfo, summary, media, contactInfo }
 
   // Check if profile photo is available, use default if not
   const hasProfilePhoto = media.profilePhoto.url && media.profilePhoto.url.trim() !== '';
-  const profilePhotoSrc = hasProfilePhoto ? media.profilePhoto.url : '/gender-neutral-user.svg';
+  const profilePhotoSrc = hasProfilePhoto ? media.profilePhoto.url : '/icons/gender-neutral-user.svg';
   const profilePhotoAlt = hasProfilePhoto ? 'Profile photo' : 'Default profile avatar';
 
   const scrollToAbout = () => {
